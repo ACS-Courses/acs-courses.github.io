@@ -12,312 +12,300 @@
     <meta property="og:site_name" content="ACS Future School Course">
     <link rel="canonical" href="https://acs-courses.github.io">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
-<link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/site.webmanifest">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* --- Root Variables --- */
         :root {
-            --primary-color: #4a148c;
-            --secondary-color: #28a745;
-            --accent-color: #ff9800;
-            --gold-color: #FFD700;
-            --background-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            --card-background: rgba(255, 255, 255, 0.98);
-            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
-            --text-dark: #2c3e50;
-            --text-light: #555;
-            --new-highlight: #e6f7ff; 
-            --new-border: #007bff; 
+            --primary: #0A0F24;
+            --primary-light: #1A2342;
+            --accent: #2563EB;
+            --accent-hover: #1D4ED8;
+            --success: #10B981;
+            --danger: #EF4444;
+            --warning: #F59E0B;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --bg-color: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --border-color: #E2E8F0;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            font-family: 'Poppins', 'Hind Siliguri', sans-serif; 
-            background: var(--background-gradient); 
+            font-family: 'Outfit', 'Hind Siliguri', sans-serif; 
+            background-color: var(--bg-color); 
             color: var(--text-dark); 
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container { max-width: 1150px; margin: 0 auto; padding: 0 20px; }
-        .section { padding: 50px 0; }
-        .hidden { display: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .internal-link { color: var(--accent); text-decoration: none; font-weight: 600; transition: 0.2s; }
+        .internal-link:hover { text-decoration: underline; color: var(--accent-hover); }
 
-        /* --- Navbar --- */
-        .navbar { 
-            background: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(10px); 
-            padding: 10px 0; 
-            position: sticky; top: 0; z-index: 1000; 
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+        /* --- Modern Glass Navbar --- */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: var(--glass-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.5); z-index: 1000; padding: 12px 0; transition: all 0.3s ease;
         }
+        .navbar-container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo-area { display: flex; align-items: center; gap: 15px; }
+        .nav-logo img { width: 55px; height: auto; }
+        .nav-logo-text { font-weight: 700; color: var(--primary); font-size: 14px; line-height: 1.2; }
         
-        .navbar-container { 
-            width: 100%; max-width: 1150px; margin: 0 auto; padding: 0 20px; 
-            display: flex; justify-content: space-between; align-items: center; 
-        }
-
-        .nav-logo img { width: 70px; height: auto; }
-
         .nav-links { display: flex; gap: 10px; align-items: center; }
-        .nav-links a { 
-            color: var(--text-dark); text-decoration: none; padding: 8px 12px; 
-            font-size: 15px; font-weight: 600; transition: all 0.3s ease; border-radius: 5px; 
+        .nav-links a {
+            color: var(--text-dark); text-decoration: none; font-weight: 500; font-size: 15px;
+            padding: 8px 12px; border-radius: 8px; transition: 0.3s;
         }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); background: #f0e6f7; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); background: rgba(37, 99, 235, 0.08); }
 
-        /* Dropdown */
+        /* Dropdown Desktop */
         .dropdown { position: relative; }
-        .dropdown-content { 
-            display: none; position: absolute; top: 100%; left: 0; 
-            background-color: white; min-width: 200px; 
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 8px; 
-            padding: 10px 0; z-index: 1001; animation: fadeIn 0.3s ease-out; 
+        .dropdown-content {
+            display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
+            background: var(--card-bg); min-width: 200px; box-shadow: var(--shadow-lg); border-radius: 12px;
+            padding: 10px; border: 1px solid var(--border-color); opacity: 0; visibility: hidden; transition: all 0.3s ease;
         }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-content a { color: var(--text-dark); padding: 10px 20px; display: block; width: 100%; text-align: left; }
-        .dropdown-content a:hover { background-color: #f8f9fa; color: var(--primary-color); }
+        .dropdown:hover .dropdown-content { display: block; opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .dropdown-content a { display: block; padding: 10px 15px; border-radius: 8px; }
+        .dropdown-content a:hover { background: var(--bg-color); }
 
-        /* Mobile Menu */
-        .menu-icon { display: none; cursor: pointer; }
-        .menu-icon div { width: 25px; height: 3px; background-color: var(--primary-color); margin: 5px 0; transition: 0.4s; }
-        .side-menu { 
-            position: fixed; top: 0; left: -300px; width: 300px; height: 100%; 
-            background-color: #ffffff; padding-top: 20px; transition: left 0.4s ease-in-out; 
-            z-index: 1002; box-shadow: 5px 0 15px rgba(0,0,0,0.1); overflow-y: auto; 
-        }
-        .side-menu.active { left: 0; }
-        .menu-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5); z-index: 1001; display: none;
-        }
-        .menu-overlay.active { display: block; }
-        .side-menu-nav a { display: block; padding: 10px 20px; color: var(--text-dark); text-decoration: none; font-weight: 600; }
-        .side-menu-nav .accordion-content a { padding-left: 40px; font-weight: 400; }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; background: #f9f9fa; }
-        .accordion-toggle { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-        .accordion-toggle::after { content: '▼'; font-size: 14px; transition: transform 0.3s; color: var(--primary-color); }
-        .accordion-toggle.active::after { transform: rotate(180deg); }
+        /* Animated Hamburger Menu */
+        .hamburger { display: none; cursor: pointer; z-index: 1002; }
+        .hamburger .line { width: 25px; height: 2.5px; background-color: var(--primary); margin: 5px 0; transition: all 0.3s ease; border-radius: 5px; }
 
-        /* --- Hero Section (Updated with Cards instead of Video) --- */
-        .hero-title { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; font-weight: 800; line-height: 1.2; text-align: center; }
-        .hero-sub { color: var(--text-light); margin-bottom: 30px; font-size: 1.2rem; text-align: center; }
+        /* Affiliate Badge */
+        .affiliate-badge {
+            position: absolute; left: 50%; transform: translateX(-50%); top: 75px;
+            background: linear-gradient(90deg, #FEF3C7, #FEF08A); color: #B45309;
+            border: 1px solid #FDE047; padding: 6px 20px; border-radius: 50px;
+            font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; z-index: 99;
+            box-shadow: 0 4px 10px rgba(250, 204, 21, 0.15);
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            padding: 150px 0 60px; text-align: center;
+            background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.08), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.05), transparent 40%);
+        }
+        .hero-title { font-size: 3.5rem; color: var(--primary); font-weight: 800; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 20px; }
+        .hero-title span { color: var(--accent); }
+        .hero-sub { font-size: 1.15rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 40px; font-weight: 400; }
+
+        /* Hero Features Grid */
+        .hero-explore-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; text-align: left; }
+        .hero-explore-card { background: white; padding: 25px; border-radius: 20px; box-shadow: var(--shadow-sm); transition: 0.3s; border: 1px solid var(--border-color); border-bottom: 4px solid var(--accent); display: flex; flex-direction: column; align-items: flex-start; }
+        .hero-explore-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-bottom-color: var(--primary); }
+        .hero-explore-card i { font-size: 2.2rem; margin-bottom: 15px; color: var(--accent); }
+        .hero-explore-card h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 5px; font-weight: 700; }
+        .hero-explore-card p { color: var(--text-muted); font-size: 0.95rem; }
         
-        .hero-explore-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: left;
-        }
-        .hero-explore-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .hero-explore-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        .hero-explore-card i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .hero-action-btn { display: flex; justify-content: center; margin-top: 40px; }
+        .hero-action-btn { margin-top: 50px; }
         .hero-action-btn a {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 8px 15px rgba(255, 152, 0, 0.4);
+            display: inline-block; background: var(--accent); color: white; padding: 16px 40px;
+            font-size: 1.1rem; font-weight: 600; border-radius: 50px; text-decoration: none; transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
         }
-        .hero-action-btn a:hover { background-color: #e68a00; transform: translateY(-2px); }
+        .hero-action-btn a:hover { background: var(--accent-hover); transform: translateY(-3px); }
+
+        /* --- Section Titles --- */
+        .section-heading { text-align: center; color: var(--primary); font-size: 2.2rem; font-weight: 800; margin-bottom: 15px; }
+        .section-subheading { text-align: center; color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
 
         /* --- Popular Course Section --- */
-        .popular-course-section {
-            background: #ffffff;
-            padding: 40px 20px;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            border: 2px dashed var(--primary-color);
-            margin: 40px 0;
-            text-align: center;
-        }
-        .popular-course-section h2 { color: var(--primary-color); font-size: 2rem; margin-bottom: 15px; font-weight: 800; }
-        .popular-course-section p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 30px; }
-        .popular-course-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .popular-course-section { margin: 60px 0; padding: 60px 20px; background: white; border-radius: 24px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); }
+        .popular-course-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
         .popular-course-card {
-            background: linear-gradient(135deg, #f0e6f7 0%, #e0c3fc 100%);
-            padding: 25px 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(74, 20, 140, 0.2);
-            text-decoration: none;
-            transition: 0.3s;
-            border-left: 5px solid var(--primary-color);
-            width: 300px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white;
+            padding: 30px; border-radius: 20px; text-decoration: none; transition: 0.3s;
+            width: 320px; display: flex; flex-direction: column; align-items: flex-start; box-shadow: var(--shadow-md);
         }
-        .popular-course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(74, 20, 140, 0.3);
-            background: linear-gradient(135deg, #e0c3fc 0%, #d1c4e9 100%);
-        }
-        .popular-course-card h3 { color: var(--primary-color); font-size: 1.5rem; margin-bottom: 10px; font-weight: 800; }
+        .popular-course-card.alt { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); color: var(--primary); }
+        .popular-course-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .popular-course-card h3 { font-size: 1.6rem; margin-bottom: 10px; font-weight: 800; }
+        .popular-course-card p { font-size: 0.95rem; margin-bottom: 20px; opacity: 0.9; }
         .popular-course-card span {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-top: 10px;
+            background: white; color: var(--primary); padding: 8px 20px; border-radius: 30px; font-size: 0.9rem; font-weight: 700;
         }
-
-        /* --- Discount Section (Updated) --- */
-        .discount-steps-container {
-            background: white; padding: 40px 20px; border-radius: 15px; margin-top: 40px; box-shadow: var(--shadow);
-            border: 2px solid var(--accent-color); 
-        }
-        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin-top: 30px; }
-        .step-card { text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px; position: relative; }
-        .step-number { background: var(--secondary-color); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin: 0 auto 15px; font-size: 18px; }
-        .step-card h4 { margin-bottom: 10px; color: var(--primary-color); }
-        .discount-highlight {
-            background: var(--gold-color);
-            color: var(--text-dark);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-weight: 700;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .discount-highlight span { font-size: 1.2rem; color: #d32f2f; font-weight: 900; }
-        .discount-highlight ul {
-            list-style: none; padding: 0; margin-top: 10px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
-        }
-        .discount-highlight ul li { background: rgba(255, 255, 255, 0.6); padding: 8px 15px; border-radius: 5px; font-weight: 600; }
+        .popular-course-card.alt span { background: var(--primary); color: white; }
 
         /* --- Package Description Section --- */
-        .package-description-section {
-            background: var(--new-highlight); padding: 40px 20px; border-radius: 15px; margin-bottom: 40px; border-left: 5px solid var(--new-border);
+        .package-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 60px; }
+        .package-card { background: white; padding: 30px; border-radius: 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); transition: 0.3s; }
+        .package-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .package-card h4 { color: var(--primary); margin-bottom: 12px; font-size: 1.3rem; font-weight: 700; }
+        .package-card p { font-size: 0.95rem; color: var(--text-muted); }
+
+        /* --- Discount Section --- */
+        .discount-container { background: #FEF2F2; padding: 40px; border-radius: 24px; border: 1px solid #FCA5A5; margin-bottom: 60px; }
+        .discount-highlight {
+            background: white; padding: 20px; border-radius: 16px; margin: 20px 0; text-align: center; box-shadow: var(--shadow-sm);
         }
-        .package-description-section h3 { text-align: center; color: var(--primary-color); margin-bottom: 25px; font-weight: 800; font-size: 1.8rem; }
-        .package-grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-        .package-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex: 1 1 300px; min-width: 250px; border-top: 3px solid var(--secondary-color); }
-        .package-card h4 { color: var(--secondary-color); margin-bottom: 10px; font-size: 1.2rem; }
-        .package-card p { font-size: 0.95rem; color: var(--text-light); }
+        .discount-highlight span { font-size: 1.2rem; color: var(--danger); font-weight: 800; }
+        .discount-highlight ul { list-style: none; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 15px; }
+        .discount-highlight ul li { background: #F8FAFC; padding: 10px 20px; border-radius: 10px; font-weight: 600; border: 1px solid var(--border-color); }
+        
+        /* Stepper */
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 40px; }
+        .step-card { text-align: center; padding: 30px 20px; background: white; border-radius: 16px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); }
+        .step-number { background: var(--accent); color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; margin: 0 auto 20px; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3); }
+        .step-card h4 { margin-bottom: 10px; color: var(--primary); font-weight: 700; }
+        .step-card p { color: var(--text-muted); font-size: 0.95rem; }
 
         /* --- Courses Grid --- */
-        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-        .course-section-heading { text-align: center; color: var(--primary-color); margin-bottom: 30px; font-weight: 800; }
-        .course-card { background: var(--card-background); padding: 30px; border-radius: 20px; box-shadow: var(--shadow); transition: all 0.3s; border-top: 5px solid var(--primary-color); text-align: center; }
-        .course-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
-        .course-card h3 { font-size: 1.6rem; margin: 15px 0; }
-        .btn { display: inline-block; padding: 12px 30px; font-size: 15px; color: white; background-color: var(--primary-color); text-decoration: none; border-radius: 50px; font-weight: 700; transition: 0.3s; border: none; cursor: pointer; width: 100%; box-shadow: 0 5px 15px rgba(74, 20, 140, 0.3); }
-        .btn:hover { background-color: #311b92; transform: translateY(-2px); }
-        .discount-note { font-size: 13px; color: #dc3545; margin-top: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 5px; }
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; margin-bottom: 60px; }
+        .course-card { background: white; padding: 35px 25px; border-radius: 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); transition: 0.3s; display: flex; flex-direction: column; text-align: center; }
+        .course-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+        .course-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); font-weight: 800; }
+        .course-card p { color: var(--text-muted); margin-bottom: 25px; flex-grow: 1; }
+        
+        .btn { display: inline-block; padding: 12px 30px; font-size: 15px; color: white; background-color: var(--accent); text-decoration: none; border-radius: 12px; font-weight: 600; transition: 0.3s; border: none; cursor: pointer; width: 100%; }
+        .btn:hover { background-color: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 15px rgba(37, 99, 235, 0.2); }
+        .discount-note { font-size: 13px; color: var(--danger); margin-top: 15px; font-weight: 700; display: block; }
+
+        /* --- Bilingual Section --- */
+        .bilingual-section { padding: 40px 0 60px; }
+        .language-toggle { display: inline-flex; background: #E2E8F0; padding: 5px; border-radius: 50px; margin-bottom: 30px; }
+        .toggle-btn { padding: 10px 30px; border-radius: 50px; border: none; font-weight: 600; cursor: pointer; transition: 0.3s; background: transparent; color: var(--text-muted); font-size: 15px; }
+        .toggle-btn.active { background: white; color: var(--primary); box-shadow: var(--shadow-sm); }
+        .content-text { background: white; padding: 40px; border-radius: 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); max-width: 900px; margin: 0 auto; }
+        .content-text ul { list-style: none; margin-top: 20px; }
+        .content-text ul li { margin-bottom: 10px; font-weight: 500; }
+        .hidden { display: none; }
 
         /* --- FAQ Section --- */
-        .faq-section { padding: 50px 0; }
-        .faq-heading { text-align: center; color: var(--primary-color); margin-bottom: 30px; font-weight: 800; }
-        .faq-item { background: white; margin-bottom: 15px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .faq-question { padding: 18px 25px; background: #f7f7f7; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--primary-color); transition: background 0.3s; }
-        .faq-question:hover { background: #eee; }
-        .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; background: #fff; color: var(--text-light); border-top: 1px solid #eee; }
-        .faq-answer p { padding: 15px 0; margin: 0; }
-        .faq-question span { font-size: 20px; transition: transform 0.3s; }
-        .faq-question.active span { transform: rotate(45deg); }
-        
-        /* --- Installment Banner --- */
-        .installment-banner { text-align: center; padding: 40px 20px; margin: 40px 0; background: white; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 2px solid var(--primary-color); }
-        .installment-banner h2 { font-size: 2rem; margin-bottom: 10px; font-weight: 800; color: var(--primary-color); }
-        .installment-banner p { font-size: 1.1rem; margin-bottom: 25px; color: var(--text-dark); }
-        .installment-banner .btn-outline-dark { display: inline-block; padding: 12px 30px; font-size: 1rem; color: var(--primary-color); background-color: transparent; border: 2px solid var(--primary-color); text-decoration: none; border-radius: 50px; font-weight: 700; transition: 0.3s; }
-        .installment-banner .btn-outline-dark:hover { background-color: var(--primary-color); color: white; }
+        .faq-section { padding: 60px 0; max-width: 800px; margin: 0 auto; }
+        .faq-item { background: white; margin-bottom: 15px; border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; transition: 0.3s; }
+        .faq-item:hover { border-color: var(--accent); }
+        .faq-question { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--primary); background: transparent; }
+        .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; color: var(--text-muted); }
+        .faq-answer p { padding: 15px 0 25px; margin: 0; border-top: 1px solid var(--border-color); }
+        .faq-question span { font-size: 22px; transition: transform 0.3s; color: var(--accent); }
+        .faq-question.active span { transform: rotate(45deg); color: var(--danger); }
 
-        /* --- Footer --- */
-        .footer { background: #1a1a2e; color: #bdc3c7; padding: 70px 0 30px; }
-        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
-        .footer-col h4 { font-size: 1.3rem; color: white; margin-bottom: 25px; position: relative; padding-bottom: 10px; }
-        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 50px; height: 3px; background: var(--accent-color); }
+        /* --- Installment Banner --- */
+        .installment-banner {
+            text-align: center; padding: 50px 30px; margin: 60px 0; background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+            border-radius: 24px; box-shadow: var(--shadow-sm); border: 1px solid #BFDBFE;
+        }
+        .installment-banner h2 { font-size: 2.2rem; margin-bottom: 15px; font-weight: 800; color: var(--primary); }
+        .installment-banner p { font-size: 1.1rem; margin-bottom: 30px; color: var(--text-muted); max-width: 600px; margin-left: auto; margin-right: auto; }
+        .installment-banner .btn-outline {
+            display: inline-block; padding: 14px 35px; font-size: 1rem; color: var(--accent); background: white;
+            border: 2px solid var(--accent); text-decoration: none; border-radius: 50px; font-weight: 700; transition: 0.3s;
+        }
+        .installment-banner .btn-outline:hover { background: var(--accent); color: white; box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2); }
+
+        /* --- Mobile Sidebar Menu --- */
+        .sidebar {
+            position: fixed; top: 0; right: -300px; width: 280px; height: 100vh;
+            background: var(--card-bg); box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+            z-index: 1003; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding: 20px;
+            display: flex; flex-direction: column;
+        }
+        .sidebar.active { right: 0; }
+        .sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+        .sidebar-header img { width: 45px; }
+        .close-sidebar { font-size: 24px; cursor: pointer; color: var(--text-muted); transition: 0.2s; background: #F1F5F9; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center; border-radius: 50%; }
+        .close-sidebar:hover { color: var(--danger); background: #FEE2E2; }
+        
+        .sidebar-nav { overflow-y: auto; flex-grow: 1; }
+        .sidebar-nav a { display: block; padding: 12px 15px; color: var(--text-dark); text-decoration: none; font-size: 16px; font-weight: 500; border-radius: 8px; margin-bottom: 5px; transition: 0.2s; }
+        .sidebar-nav a:hover { background: #EFF6FF; color: var(--accent); padding-left: 20px; }
+        .sidebar-nav .active-link { background: #EFF6FF; color: var(--accent); font-weight: 700; border-left: 4px solid var(--accent); }
+        
+        .accordion-content-mobile { max-height: 0; overflow: hidden; transition: max-height 0.3s; background: #F8FAFC; border-radius: 8px; }
+        .accordion-content-mobile a { padding-left: 30px; font-size: 15px; color: var(--text-muted); }
+        .accordion-toggle-mobile { display: flex; justify-content: space-between; align-items: center; }
+        .accordion-toggle-mobile::after { content: '▼'; font-size: 12px; transition: 0.3s; }
+        .accordion-toggle-mobile.active::after { transform: rotate(180deg); }
+
+        .overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 15, 36, 0.4); backdrop-filter: blur(3px);
+            z-index: 1001; display: none; opacity: 0; transition: 0.3s;
+        }
+        .overlay.active { display: block; opacity: 1; }
+
+        /* --- Premium Footer --- */
+        .footer { background: #0B1120; color: #94A3B8; padding: 70px 0 30px; margin-top: 40px; border-top: 4px solid var(--accent); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
+        .footer-col h4 { color: #F8FAFC; font-size: 1.2rem; margin-bottom: 20px; font-weight: 600; position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--accent); border-radius: 5px; }
+        .footer-logo-box img { max-width: 140px; margin-bottom: 20px; filter: brightness(0) invert(1); }
         .footer-col ul { list-style: none; }
         .footer-col ul li { margin-bottom: 12px; }
-        .footer-col a { color: #bdc3c7; text-decoration: none; transition: 0.3s; display: block; }
-        .footer-col a:hover { color: var(--accent-color); padding-left: 5px; }
-        .footer-logo-box img { width: 100px; background: white; padding: 8px; border-radius: 8px; margin-bottom: 20px; }
-        .footer-bottom { text-align: center; margin-top: 50px; padding-top: 25px; border-top: 1px solid #2c3e50; font-size: 14px; }
+        .footer-col ul li a { color: #94A3B8; text-decoration: none; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .footer-col ul li a::before { content: '›'; font-size: 18px; color: var(--accent); }
+        .footer-col ul li a:hover { color: white; transform: translateX(5px); }
+        .footer-bottom { text-align: center; margin-top: 60px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; }
 
-        /* --- WhatsApp Float --- */
-        .whatsapp-float { 
-            position: fixed; width: 60px; height: 60px; bottom: 30px; left: 30px; 
-            background-color: #25d366; color: #FFF; border-radius: 50px; display: flex; justify-content: center; align-items: center; 
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 100; 
-            animation: pulse 2s infinite, flash-visibility 5s infinite; 
+        /* Premium Floating WhatsApp with CTA Text */
+        .whatsapp-float-btn {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25D366; color: white; border-radius: 50px;
+            display: flex; justify-content: center; align-items: center; gap: 10px;
+            padding: 12px 24px 12px 16px; text-decoration: none; font-weight: 600; font-size: 15px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 999; transition: all 0.3s ease;
+            border: 2px solid white;
         }
-
-        @keyframes pulse { 
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); } 
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } 
-        } 
-        
-        @keyframes flash-visibility {
-            0% { opacity: 1; visibility: visible; } 
-            40% { opacity: 1; visibility: visible; } 
-            40.01% { opacity: 0; visibility: hidden; } 
-            100% { opacity: 0; visibility: hidden; }
-        }
+        .whatsapp-float-btn svg { width: 24px; height: 24px; }
+        .whatsapp-float-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5); background: #20BA56; }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .menu-icon { display: block; }
-            .hero-title { font-size: 1.8rem; }
-            .whatsapp-float { left: 15px; bottom: 15px; }
+            .hamburger { display: block; }
+            .hero-title { font-size: 2.2rem; }
+            .whatsapp-float-btn { bottom: 20px; right: 20px; padding: 12px; }
+            .whatsapp-text { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+    <!-- Professional Affiliate Badge -->
+    <div class="affiliate-badge" title="Verified Affiliate Partner of ACS Future School">
+        ⭐ অফিশিয়াল অ্যাফিলিয়েট পার্টনার - বিশেষ ডিসকাউন্ট লিংক
+    </div>
 
-    <header class="navbar">
-        <div class="navbar-container">
-            <a href="index.html" class="nav-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/ACS_Future_School_logo_photo.webp" alt="ACS Future School Logo">
-            </a> <b><p align="center" >Academic Program 2026</p></b>
+    <!-- Overlay for Mobile Menu -->
+    <div class="overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+
+    <!-- Glass Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <div class="nav-logo-area">
+                <a href="index.html" class="nav-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/ACS_Future_School_logo_photo.webp" alt="ACS Future School Logo">
+                </a>
+                <span class="nav-logo-text">Academic Program<br>2026</span>
+            </div>
+            
             <nav class="nav-links">
                 <a href="index.html" class="active">Home</a>
-                <a href="about.html">About Us</a> <div class="dropdown">
-                    <a href="courses.html">Academic Program</a> <div class="dropdown-content">
+                <a href="about.html">About Us</a>
+                <div class="dropdown">
+                    <a href="courses.html">Academic Program ▾</a>
+                    <div class="dropdown-content">
                         <a href="class6.html">Class 6</a>
                         <a href="class7.html">Class 7</a>
                         <a href="class8.html">Class 8</a>
@@ -326,201 +314,214 @@
                     </div>
                 </div>
                 <a href="Panel.html">Teacher Panel</a>
-                <a href="quiz.html" style="color: var(--accent-color);">Installment (কিস্তি)</a>
+                <a href="quiz.html" style="color: var(--accent); font-weight: 700;">Installment (কিস্তি)</a>
                 <a href="Contact.html">Contact</a>
             </nav>
-            <div class="menu-icon" onclick="toggleMenu()">
-                <div></div><div></div><div></div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
             </div>
         </div>
     </header>
 
-    <div class="side-menu" id="sideMenu">
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid #eee;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/ACS_Future_School_logo_photo.webp" alt="Logo" width="70">
-            <span style="font-size: 24px; cursor: pointer;" onclick="closeMenu()">✖</span>
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sideMenu">
+        <div class="sidebar-header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/ACS_Future_School_logo_photo.webp" alt="Logo">
+            <span class="close-sidebar" onclick="toggleMenu()">✖</span>
         </div>
-        <nav class="side-menu-nav">
-            <a href="index.html">Home</a>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="active-link">Home</a>
             <a href="about.html">About Us</a>
-            <div class="accordion">
-                <a href="#" class="accordion-toggle">Academic Program</a>
-                <div class="accordion-content">
-                    <a href="class6.html">Class 6</a>
-                    <a href="class7.html">Class 7</a>
-                    <a href="class8.html">Class 8</a>
-                    <a href="class9.html">Class 9</a>
-                    <a href="class10.html">Class 10</a>
-                </div>
+            
+            <a href="#" class="accordion-toggle-mobile">Academic Program</a>
+            <div class="accordion-content-mobile">
+                <a href="class6.html">Class 6</a>
+                <a href="class7.html">Class 7</a>
+                <a href="class8.html">Class 8</a>
+                <a href="class9.html">Class 9</a>
+                <a href="class10.html">Class 10</a>
             </div>
+            
             <a href="Panel.html">Teacher Panel</a>
-            <a href="quiz.html" style="color: var(--accent-color);">কিস্তিতে ভর্তি</a>
+            <a href="quiz.html" style="color: var(--accent); font-weight: 700;">কিস্তিতে ভর্তি</a>
             <a href="Contact.html">Contact</a>
-            <a href="faq.html">FAQ</a> </nav>
+            <a href="faq.html">FAQ</a>
+        </nav>
     </div>
 
-    <main class="container">
-        <section class="section" style="padding-bottom: 20px;">
-            <h1 class="hero-title">ACS Future School <br> <span style="color: var(--accent-color);">একাডেমিক প্রোগ্রাম ২০২৬</span></h1>
-            <p class="hero-sub">দেশের সেরা শিক্ষকদের সাথে গড়ো তোমার উজ্জ্বল ভবিষ্যৎ।</p>
-            
-            <!-- --- UPDATED HERO SECTION (Video Replaced with Explore Cards) --- -->
-            <div class="hero-explore-grid">
-                <div class="hero-explore-card" style="border-bottom: 4px solid var(--primary-color);">
-                    <i class="fas fa-graduation-cap" style="color: var(--primary-color);"></i>
-                    <h3 style="color: var(--primary-color); font-size: 1.2rem; margin-bottom: 5px;">একাডেমিক ক্লাস</h3>
-                    <p style="color: var(--text-light); font-size: 0.95rem;">৬ষ্ঠ থেকে দশম শ্রেণির সেরা প্রস্তুতি।</p>
-                </div>
-                <div class="hero-explore-card" style="border-bottom: 4px solid var(--accent-color);">
-                    <i class="fas fa-robot" style="color: var(--accent-color);"></i>
-                    <h3 style="color: var(--primary-color); font-size: 1.2rem; margin-bottom: 5px;">কিউরিওসিটি AI</h3>
-                    <p style="color: var(--text-light); font-size: 0.95rem;">২৪/৭ পার্সোনাল ডাউট সলভিং সাপোর্ট।</p>
-                </div>
-                <div class="hero-explore-card" style="border-bottom: 4px solid var(--secondary-color);">
-                    <i class="fas fa-chart-line" style="color: var(--secondary-color);"></i>
-                    <h3 style="color: var(--primary-color); font-size: 1.2rem; margin-bottom: 5px;">মডেল টেস্ট</h3>
-                    <p style="color: var(--text-light); font-size: 0.95rem;">সাপ্তাহিক এক্সাম ও লাইভ লিডারবোর্ড।</p>
-                </div>
-            </div>
-            <!-- --- END UPDATED HERO SECTION --- -->
-
-            <div class="hero-action-btn">
-                <a href="#course-section">⬇️ আমাদের কোর্সগুলো দেখুন ও ভর্তি হোন ⬇️</a>
-            </div>
-        </section>
-
-        <!-- --- POPULAR COURSE SECTION --- -->
-        <section class="popular-course-section">
-            <h2>🔥 আমাদের সর্বাধিক জনপ্রিয় কোর্সসমূহ 🔥</h2>
-            <p>শিক্ষার্থীদের পছন্দের শীর্ষে থাকা কোর্সগুলোতে প্রি-বুক ডিসকাউন্ট চলছে! আজই যুক্ত হয়ে যাও।</p>
-            
-            <div class="popular-course-grid">
-                <a href="acs-ssc-27-frb.html" class="popular-course-card">
-                    <h3>SSC 27 FRB</h3>
-                    <p style="color: var(--text-dark); margin-bottom: 0;">এসএসসি ২৭ ব্যাচের ফাইনাল রিভিশন। প্রিটেস্টের পর সেরা প্রস্তুতি!</p>
-                    <span>বিস্তারিত দেখুন 🚀</span>
-                </a>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">ACS Future School <br> <span>একাডেমিক প্রোগ্রাম ২০২৬</span></h1>
+                <p class="hero-sub">দেশের সেরা শিক্ষকদের সাথে গড়ো তোমার উজ্জ্বল ভবিষ্যৎ।</p>
                 
-                <a href="#" class="popular-course-card" style="border-left-color: var(--accent-color); background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);">
-                    <h3 style="color: var(--accent-color);">HSC 28 Batch</h3>
-                    <p style="color: var(--text-dark); margin-bottom: 0;">এইচএসসি ২৮ ব্যাচের পূর্ণাঙ্গ একাডেমিক প্রোগ্রাম।</p>
-                    <span style="background: var(--accent-color);">বিস্তারিত দেখুন 🚀</span>
-                </a>
+                <div class="hero-explore-grid">
+                    <div class="hero-explore-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>একাডেমিক ক্লাস</h3>
+                        <p>৬ষ্ঠ থেকে দশম শ্রেণির সেরা প্রস্তুতি।</p>
+                    </div>
+                    <div class="hero-explore-card" style="border-bottom-color: var(--success);">
+                        <i class="fas fa-robot" style="color: var(--success);"></i>
+                        <h3>কিউরিওসিটি AI</h3>
+                        <p>২৪/৭ পার্সোনাল ডাউট সলভিং সাপোর্ট।</p>
+                    </div>
+                    <div class="hero-explore-card" style="border-bottom-color: var(--warning);">
+                        <i class="fas fa-chart-line" style="color: var(--warning);"></i>
+                        <h3>মডেল টেস্ট</h3>
+                        <p>সাপ্তাহিক এক্সাম ও লাইভ লিডারবোর্ড।</p>
+                    </div>
+                </div>
+
+                <div class="hero-action-btn">
+                    <a href="#course-section">⬇️ আমাদের কোর্সগুলো দেখুন ও ভর্তি হোন ⬇️</a>
+                </div>
             </div>
         </section>
-        <!-- --- END POPULAR COURSE SECTION --- -->
 
-        <section class="package-description-section">
-            <h3>আমাদের কোর্স প্যাকেজসমূহ (২০২৬ শিক্ষাবর্ষ)</h3>
+        <!-- Popular Course Section -->
+        <section class="container">
+            <div class="popular-course-section">
+                <h2 class="section-heading">🔥 আমাদের সর্বাধিক জনপ্রিয় কোর্সসমূহ 🔥</h2>
+                <p class="section-subheading">শিক্ষার্থীদের পছন্দের শীর্ষে থাকা কোর্সগুলোতে প্রি-বুক ডিসকাউন্ট চলছে! আজই যুক্ত হয়ে যাও।</p>
+                
+                <div class="popular-course-grid">
+                    <a href="acs-ssc-27-frb.html" class="popular-course-card">
+                        <h3>SSC 27 FRB</h3>
+                        <p>এসএসসি ২৭ ব্যাচের ফাইনাল রিভিশন। প্রিটেস্টের পর সেরা প্রস্তুতি!</p>
+                        <span>বিস্তারিত দেখুন 🚀</span>
+                    </a>
+                    
+                    <a href="#" class="popular-course-card alt">
+                        <h3>HSC 28 Batch</h3>
+                        <p>এইচএসসি ২৮ ব্যাচের পূর্ণাঙ্গ একাডেমিক প্রোগ্রাম।</p>
+                        <span>বিস্তারিত দেখুন 🚀</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Package Description Section -->
+        <section class="container">
+            <h2 class="section-heading" style="font-size: 1.8rem;">আমাদের কোর্স প্যাকেজসমূহ ২০২৬</h2>
             <div class="package-grid">
-                <div class="package-card">
+                <div class="package-card" style="border-top: 4px solid var(--accent);">
                     <h4>১. 1st Half (জানুয়ারি – জুন)</h4>
                     <p>বছরের প্রথম ৬ মাসের পূর্ণাঙ্গ প্রস্তুতি। এই সময়ের মধ্যে সিলেবাসের যতটুকু অংশ শেষ করা হবে, তার সব ক্লাস, লেকচার ও এক্সাম পাবে।</p>
                 </div>
-                <div class="package-card" style="border-top: 3px solid var(--accent-color);">
+                <div class="package-card" style="border-top: 4px solid var(--success);">
                     <h4>২. 2nd Half (জুলাই – ডিসেম্বর + FRB)</h4>
                     <p>বছরের শেষ ৬ মাসের পূর্ণাঙ্গ প্রস্তুতি। এই প্যাকেজে বছরের শেষ পর্যন্ত সব ক্লাস এবং ফাইনাল রিভিশনের জন্য <strong>FRB (Final Revision Batch)</strong> অন্তর্ভুক্ত থাকবে।</p>
                 </div>
-                <div class="package-card" style="border-top: 3px solid var(--primary-color);">
+                <div class="package-card" style="border-top: 4px solid var(--primary);">
                     <h4>৩. Full Year (পুরো বছর + FRB)</h4>
-                    <p>সম্পূর্ণ শিক্ষাবর্ষের (জানুয়ারি থেকে ডিসেম্বর) জন্য। বছরের শুরু থেকে শেষ পর্যন্ত সকল ক্লাস, পরীক্ষা এবং <strong>FRB (Final Revision Batch)</strong> সহ সকল সুবিধা পাওয়া যাবে।</p>
+                    <p>সম্পূর্ণ শিক্ষাবর্ষের (জানুয়ারি থেকে ডিসেম্বর) জন্য। বছরের শুরু থেকে শেষ পর্যন্ত সকল ক্লাস, পরীক্ষা এবং <strong>FRB</strong> সহ সকল সুবিধা পাওয়া যাবে।</p>
                 </div>
             </div>
         </section>
 
-        <!-- --- UPDATED DISCOUNT SECTION --- -->
-        <section class="discount-steps-container">
-            <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 10px;">🎁 স্পেশাল Agent Discount অফার! 🎁</h2>
-            <p style="text-align: center; color: var(--text-dark); font-size: 1.1rem; font-weight: 600;">আমাদের লিংকের মাধ্যমে ভর্তি হলেই পাচ্ছেন নিশ্চিত ছাড়!</p>
+        <!-- Discount Section -->
+        <section class="container">
+            <div class="discount-container">
+                <h2 style="text-align: center; color: var(--primary); margin-bottom: 10px; font-weight: 800;">🎁 স্পেশাল Agent Discount অফার! 🎁</h2>
+                <p style="text-align: center; color: var(--text-dark); font-size: 1.1rem; font-weight: 600;">আমাদের লিংকের মাধ্যমে ভর্তি হলেই পাচ্ছেন নিশ্চিত ছাড়!</p>
 
-            <div class="discount-highlight">
-                <p>🔥 ACS Future School "Agent Discount" (সবার জন্য):</p>
-                <ul>
-                    <li>ফুল ইয়ার প্যাকেজে: <span>৳ ১০০০ - ১৫০০</span> ডিসকাউন্ট</li>
-                    <li>হাফ ইয়ার/বান্ডেল প্যাকেজে: <span>৳ ৫০০ - ৭৫০</span> ডিসকাউন্ট</li>
-                </ul>
-            </div>
-            
-            <div class="discount-highlight" style="background: #ffebee; border: 1px solid #ffcdd2;">
-                <p style="color: #c62828; font-size: 1.2rem; margin-bottom: 5px;">❌ AFS Ex-Students Discount নোটিশ</p>
-                <p style="font-size: 0.95rem; color: #b71c1c; font-weight: 600;">দুঃখিত! Ex-Student ডিসকাউন্টের মেয়াদ শেষ হয়ে গিয়েছে। এটি বর্তমানে আর প্রযোজ্য নয়। তবে আপনি আমাদের লিংকের মাধ্যমে Agent Discount উপভোগ করতে পারবেন।</p>
-            </div>
+                <div class="discount-highlight">
+                    <p style="font-size: 1.1rem; font-weight: 700; color: var(--primary);">🔥 ACS Future School "Agent Discount" (সবার জন্য):</p>
+                    <ul>
+                        <li>ফুল ইয়ার প্যাকেজে: <span>৳ ১০০০ - ১৫০০</span> ডিসকাউন্ট</li>
+                        <li>হাফ ইয়ার/বান্ডেল প্যাকেজে: <span>৳ ৫০০ - ৭৫০</span> ডিসকাউন্ট</li>
+                    </ul>
+                </div>
+                
+                <div class="discount-highlight" style="background: #FFF1F2; border: 1px solid #FECACA;">
+                    <p style="color: #B91C1C; font-size: 1.2rem; margin-bottom: 5px; font-weight: 700;">❌ AFS Ex-Students Discount নোটিশ</p>
+                    <p style="font-size: 0.95rem; color: #991B1B; font-weight: 500;">দুঃখিত! Ex-Student ডিসকাউন্টের মেয়াদ শেষ হয়ে গিয়েছে। এটি বর্তমানে আর প্রযোজ্য নয়। তবে আপনি আমাদের লিংকের মাধ্যমে Agent Discount উপভোগ করতে পারবেন।</p>
+                </div>
 
-            <h3 style="text-align: center; color: var(--primary-color); margin-top: 30px; margin-bottom: 20px;">ভর্তির প্রক্রিয়া (ডিসকাউন্ট পেতে)</h3>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">১</div>
-                    <h4>কোর্স নির্বাচন করুন</h4>
-                    <p>আপনার শ্রেণি এবং প্যাকেজ (Full Year/Half Year) নিচের তালিকা থেকে পছন্দ করুন.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">২</div>
-                    <h4>লিংকে ক্লিক করুন</h4>
-                    <p>"ভর্তি হও" বাটনে ক্লিক করলে আপনাকে সরাসরি পেমেন্ট পেজে নেওয়া হবে।</p>
-                </div>
-                <div class="step-card" style="background: #e8f5e9;">
-                    <div class="step-number" style="background: var(--secondary-color);">৩</div>
-                    <h4>ডিসকাউন্ট নিশ্চিত!</h4>
-                    <p>এই লিংকগুলো থেকে গেলে **Discount** স্বয়ংক্রিয়ভাবে যুক্ত হয়ে যাবে।</p>
+                <h3 style="text-align: center; color: var(--primary); margin-top: 40px; margin-bottom: 10px; font-weight: 700;">ভর্তির প্রক্রিয়া (ডিসকাউন্ট পেতে)</h3>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">১</div>
+                        <h4>কোর্স নির্বাচন করুন</h4>
+                        <p>আপনার শ্রেণি এবং প্যাকেজ (Full Year/Half Year) নিচের তালিকা থেকে পছন্দ করুন।</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">২</div>
+                        <h4>লিংকে ক্লিক করুন</h4>
+                        <p>"ভর্তি হও" বাটনে ক্লিক করলে আপনাকে সরাসরি পেমেন্ট পেজে নেওয়া হবে।</p>
+                    </div>
+                    <div class="step-card" style="background: #ECFDF5; border-color: #A7F3D0;">
+                        <div class="step-number" style="background: var(--success);">৩</div>
+                        <h4 style="color: var(--success);">ডিসকাউন্ট নিশ্চিত!</h4>
+                        <p>এই লিংকগুলো থেকে গেলে **Discount** স্বয়ংক্রিয়ভাবে যুক্ত হয়ে যাবে।</p>
+                    </div>
                 </div>
             </div>
         </section>
-        <!-- --- END UPDATED DISCOUNT SECTION --- -->
 
-        <section class="section" id="course-section"> 
-            <h2 class="course-section-heading">আমাদের প্রিমিয়াম কোর্সসমূহ (Full Year)</h2>
-            <p style="text-align: center; color: var(--text-light); margin-bottom: 40px;">* Early Bird ডিসকাউন্ট শুধুমাত্র দশম শ্রেণিতে প্রযোজ্য। অন্যান্য ক্লাসে Agent ডিসকাউন্ট যুক্ত হবে।</p>
+        <!-- Courses Grid Section -->
+        <section class="container" id="course-section"> 
+            <h2 class="section-heading">আমাদের প্রিমিয়াম কোর্সসমূহ (Full Year)</h2>
+            <p class="section-subheading">* Early Bird ডিসকাউন্ট শুধুমাত্র দশম শ্রেণিতে প্রযোজ্য। অন্যান্য ক্লাসে Agent ডিসকাউন্ট যুক্ত হবে।</p>
             
             <div class="course-grid">
-                <div class="course-card">
+                <div class="course-card" style="border-top: 4px solid var(--accent);">
                     <h3>💡 ষষ্ঠ শ্রেণি (Full Year)</h3>
                     <p>১০০ তে ১০০ প্রস্তুতি নিশ্চিত এবং সাথে FRB পাচ্ছেন একদম ফ্রীতে।</p>
-                    <a href="https://afs.bd/yyFHRX" class="btn" style="margin-top: 15px;">ভর্তি হও</a>
+                    <a href="https://afs.bd/yyFHRX" class="btn">ভর্তি হও</a>
                     <span class="discount-note">🔥 Agent Discount যুক্ত হবে</span>
                 </div>
-                <div class="course-card" style="border-top-color: var(--secondary-color);">
+                <div class="course-card" style="border-top: 4px solid var(--success);">
                     <h3>🚀 সপ্তম শ্রেণি (Full Year)</h3>
                     <p>গণিত ও বিজ্ঞানের মজবুত ভিত্তি এবং FRB সহ।</p>
-                    <a href="https://afs.bd/a5Sgkh" class="btn" style="margin-top: 15px; background-color: var(--secondary-color);">ভর্তি হও</a>
+                    <a href="https://afs.bd/a5Sgkh" class="btn" style="background: var(--success);">ভর্তি হও</a>
                     <span class="discount-note">🔥 Agent Discount যুক্ত হবে</span>
                 </div>
-                <div class="course-card">
+                <div class="course-card" style="border-top: 4px solid var(--warning);">
                     <h3>🎯 অষ্টম শ্রেণি (Full Year)</h3>
                     <p>জেএসসি ও স্কলারশিপ গাইডলাইন এবং FRB সহ।</p>
-                    <a href="https://afs.bd/8kkSG5" class="btn" style="margin-top: 15px;">ভর্তি হও</a>
+                    <a href="https://afs.bd/8kkSG5" class="btn" style="background: var(--warning);">ভর্তি হও</a>
                     <span class="discount-note">🔥 Agent Discount যুক্ত হবে</span>
                 </div>
-                <div class="course-card" style="border-top-color: var(--accent-color);">
+                <div class="course-card" style="border-top: 4px solid var(--primary);">
                     <h3>⚛️ নবম শ্রেণি (Full Year)</h3>
                     <p>গ্রুপ সাবজেক্ট সহ সকল জেনারেল সাবজেক্ট এর সেরা প্রস্তুতি এবং FRB সহ।</p>
-                    <a href="https://afs.bd/xiu1yG" class="btn" style="margin-top: 15px; background-color: var(--accent-color);">ভর্তি হও</a>
+                    <a href="https://afs.bd/xiu1yG" class="btn" style="background: var(--primary);">ভর্তি হও</a>
                     <span class="discount-note">🔥 Agent Discount যুক্ত হবে</span>
                 </div>
-                <div class="course-card">
+                <div class="course-card" style="border-top: 4px solid var(--danger);">
                     <h3>🎓 দশম শ্রেণি / SSC 27 (Full Year)</h3>
                     <p>এসএসসি ২০২৭ এর পূর্ণাঙ্গ প্রস্তুতি ও FRB সহ।</p>
-                    <a href="acs-ssc-27-frb.html" class="btn" style="margin-top: 15px;">ভর্তি হও (Early Bird)</a>
-                    <span class="discount-note">🔥 Early Bird Discount যুক্ত হবে</span>
+                    <a href="acs-ssc-27-frb.html" class="btn" style="background: var(--danger);">ভর্তি হও (Early Bird)</a>
+                    <span class="discount-note" style="color: var(--danger);">🔥 Early Bird Discount যুক্ত হবে</span>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="courses.html" class="btn-outline-dark" style="border: 2px solid var(--primary-color); color: var(--primary-color); background: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s;">অন্যান্য প্যাকেজগুলো দেখুন</a>
+            <div style="text-align: center; margin-bottom: 60px;">
+                <a href="courses.html" style="display: inline-block; border: 2px solid var(--primary); color: var(--primary); background: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s;" onmouseover="this.style.background='var(--primary)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='var(--primary)';">অন্যান্য প্যাকেজগুলো দেখুন</a>
             </div>
         </section>
 
-        <section class="bilingual-section" style="padding-top: 40px;">
-            <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 20px;">কেন বেছে নেবেন ACS Future School?</h2>
+        <!-- Bilingual Section -->
+        <section class="container bilingual-section">
+            <h2 class="section-heading">কেন বেছে নেবেন ACS Future School?</h2>
             
-            <div class="language-toggle" style="text-align: center; margin-bottom: 20px;">
-                <button class="toggle-btn active" onclick="toggleLanguage('bn')" style="padding: 5px 15px; border: 1px solid var(--primary-color); background: var(--primary-color); color: white; cursor: pointer; border-radius: 5px;">বাংলা</button>
-                <button class="toggle-btn" onclick="toggleLanguage('en')" style="padding: 5px 15px; border: 1px solid var(--primary-color); background: white; color: var(--primary-color); cursor: pointer; border-radius: 5px;">English</button>
+            <div style="text-align: center;">
+                <div class="language-toggle">
+                    <button class="toggle-btn active" onclick="toggleLanguage('bn')">বাংলা</button>
+                    <button class="toggle-btn" onclick="toggleLanguage('en')">English</button>
+                </div>
             </div>
 
             <div id="bn-content" class="content-text">
                 <p><strong>ACS Future School</strong> শিক্ষার্থীদের জন্য এক নতুন দিগন্ত উন্মোচন করেছে। আমরা বিশ্বাস করি সঠিক দিকনির্দেশনা এবং মানসম্মত শিক্ষা প্রতিটি শিক্ষার্থীর অধিকার।</p>
-                <p>আমাদের প্ল্যাটফর্মে ক্লাস নেন বুয়েট, ঢাকা বিশ্ববিদ্যালয় এবং স্বনামধন্য মেডিকেল কলেজের অভিজ্ঞ ভাইয়া-আপুরা। প্রথাগত মুখস্থবিদ্যার বাইরে গিয়ে আমরা জোর দিই কনসেপ্ট ক্লিয়ার করার ওপর। আমাদের স্মার্ট ক্লাসরুম, লাইভ ইন্টারঅ্যাকশন এবং সার্বক্ষণিক প্রবলেম সলভিং সাপোর্ট শিক্ষার্থীদের আত্মবিশ্বাসী করে তোলে।</p>
-                <ul style="margin-left: 20px; margin-top: 15px;">
+                <p style="margin-top: 15px;">আমাদের প্ল্যাটফর্মে ক্লাস নেন বুয়েট, ঢাকা বিশ্ববিদ্যালয় এবং স্বনামধন্য মেডিকেল কলেজের অভিজ্ঞ ভাইয়া-আপুরা। প্রথাগত মুখস্থবিদ্যার বাইরে গিয়ে আমরা জোর দিই কনসেপ্ট ক্লিয়ার করার ওপর। আমাদের স্মার্ট ক্লাসরুম, লাইভ ইন্টারঅ্যাকশন এবং সার্বক্ষণিক প্রবলেম সলভিং সাপোর্ট শিক্ষার্থীদের আত্মবিশ্বাসী করে তোলে।</p>
+                <ul>
                     <li>✅ অভিজ্ঞ ও সেরা শিক্ষক প্যানেল।</li>
                     <li>✅ নতুন কারিকুলাম অনুযায়ী আপডেটেড কন্টেন্ট।</li>
                     <li>✅ নিয়মিত মডেল টেস্ট ও পারফরম্যান্স অ্যানালাইসিস।</li>
@@ -529,8 +530,8 @@
 
             <div id="en-content" class="content-text hidden">
                 <p><strong>ACS Future School</strong> opens up new horizons for students. We believe that proper guidance and quality education are the rights of every student.</p>
-                <p>Our classes are conducted by experienced mentors from BUET, Dhaka University, and reputed medical colleges. Moving beyond traditional rote learning, we emphasize conceptual clarity. Our smart classrooms, live interactions, and 24/7 problem-solving support make students confident.</p>
-                 <ul style="margin-left: 20px; margin-top: 15px;">
+                <p style="margin-top: 15px;">Our classes are conducted by experienced mentors from BUET, Dhaka University, and reputed medical colleges. Moving beyond traditional rote learning, we emphasize conceptual clarity. Our smart classrooms, live interactions, and 24/7 problem-solving support make students confident.</p>
+                 <ul>
                     <li>✅ Experienced and best teacher panel.</li>
                     <li>✅ Updated content according to the new curriculum.</li>
                     <li>✅ Regular model tests and performance analysis.</li>
@@ -538,9 +539,10 @@
             </div>
         </section>
 
+        <!-- FAQ Section -->
         <section class="faq-section">
-            <h2 class="faq-heading">💡 প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী (FAQ)</h2>
-            <div class="faq-list">
+            <h2 class="section-heading" style="font-size: 2rem;">💡 প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী (FAQ)</h2>
+            <div style="margin-top: 30px;">
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
                         কোর্সটিতে কাদের ক্লাস নেওয়া হবে? <span>+</span>
@@ -576,22 +578,25 @@
             </div>
         </section>
 
-
-        <section class="installment-banner">
-            <h2>টাকার চিন্তায় পড়ালেখা থামবে না!</h2>
-            <p>ACS Future School এ এখন পাচ্ছেন সহজ কিস্তিতে ভর্তির সুবর্ণ সুযোগ। একবারে পুরো টাকা পরিশোধের চাপ নেই।</p>
-            <a href="quiz.html" class="btn-outline-dark">কিস্তির নিয়মাবলী দেখুন</a>
+        <!-- Installment Banner -->
+        <section class="container">
+            <div class="installment-banner">
+                <h2>টাকার চিন্তায় পড়ালেখা থামবে না!</h2>
+                <p>ACS Future School এ এখন পাচ্ছেন সহজ কিস্তিতে ভর্তির সুবর্ণ সুযোগ। একবারে পুরো টাকা পরিশোধের চাপ নেই।</p>
+                <a href="quiz.html" class="btn-outline">কিস্তির নিয়মাবলী দেখুন</a>
+            </div>
         </section>
 
     </main>
 
+    <!-- Premium Footer -->
     <footer class="footer">
-        <div class="container footer-container">
+        <div class="container footer-grid">
             <div class="footer-col">
                 <div class="footer-logo-box">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/ACS_Future_School_logo_photo.webp" alt="ACS Logo">
                 </div>
-                <p style="font-size: 14px;">আমরা গড়ছি আগামীর বাংলাদেশ। আধুনিক শিক্ষা ও প্রযুক্তির সমন্বয়ে আপনার সন্তানের উজ্জ্বল ভবিষ্যৎ নিশ্চিত করাই আমাদের লক্ষ্য।</p>
+                <p style="font-size: 0.95rem; line-height: 1.7;">আমরা গড়ছি আগামীর বাংলাদেশ। আধুনিক শিক্ষা ও প্রযুক্তির সমন্বয়ে আপনার সন্তানের উজ্জ্বল ভবিষ্যৎ নিশ্চিত করাই আমাদের লক্ষ্য।</p>
             </div>
             <div class="footer-col">
                 <h4>একাডেমিক প্রোগ্রাম</h4>
@@ -607,7 +612,8 @@
                 <ul>
                     <li><a href="about.html">আমাদের সম্পর্কে</a></li>
                     <li><a href="Panel.html">শিক্ষক প্যানেল</a></li>
-                    <li><a href="faq.html">FAQ (প্রশ্নাবলী)</a></li> <li><a href="quiz.html" style="color: var(--accent-color); font-weight: bold;">কিস্তিতে ভর্তি (Installment)</a></li>
+                    <li><a href="faq.html">FAQ (প্রশ্নাবলী)</a></li>
+                    <li><a href="quiz.html" style="color: var(--accent); font-weight: bold;">কিস্তিতে ভর্তি (Installment)</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -620,25 +626,42 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">
+        <div class="container footer-bottom">
             <p>&copy; 2026 ACS Future School. All Rights Reserved. | Design Updated for Better Experience.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/8801778682815" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 35px;">
+    <!-- Premium CTA Floating WhatsApp Button -->
+    <a href="https://wa.me/8801778682815" class="whatsapp-float-btn" target="_blank" title="যেকোনো সাহায্যে মেসেজ করুন">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.575 6.575 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943s-.182-.15-.38-.25z"/>
+        </svg>
+        <span class="whatsapp-text">যেকোনো প্রশ্নে মেসেজ দিন</span>
     </a>
 
     <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.85)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
         // Mobile Menu Logic
         const sideMenu = document.getElementById("sideMenu");
         const overlay = document.getElementById("menuOverlay");
-        function toggleMenu() { sideMenu.classList.add("active"); overlay.classList.add("active"); }
-        function closeMenu() { sideMenu.classList.remove("active"); overlay.classList.remove("active"); }
-        overlay.addEventListener('click', closeMenu);
+        function toggleMenu() { 
+            sideMenu.classList.toggle("active"); 
+            overlay.classList.toggle("active"); 
+        }
 
         // Mobile Accordion
-        document.querySelectorAll('.accordion-toggle').forEach(item => {
+        document.querySelectorAll('.accordion-toggle-mobile').forEach(item => {
             item.addEventListener('click', event => {
                 event.preventDefault();
                 const content = item.nextElementSibling;
@@ -655,29 +678,18 @@
         function toggleLanguage(lang) {
             const bnContent = document.getElementById('bn-content');
             const enContent = document.getElementById('en-content');
-            const bnBtn = document.querySelector("button[onclick=\"toggleLanguage('bn')\"]");
-            const enBtn = document.querySelector("button[onclick=\"toggleLanguage('en')\"]");
+            const btns = document.querySelectorAll('.toggle-btn');
+            
+            btns.forEach(btn => btn.classList.remove('active'));
 
             if (lang === 'bn') {
                 bnContent.classList.remove('hidden');
                 enContent.classList.add('hidden');
-                bnBtn.classList.add('active');
-                enBtn.classList.remove('active');
-                
-                bnBtn.style.background = 'var(--primary-color)';
-                bnBtn.style.color = 'white';
-                enBtn.style.background = 'white';
-                enBtn.style.color = 'var(--primary-color)';
+                btns[0].classList.add('active');
             } else {
                 enContent.classList.remove('hidden');
                 bnContent.classList.add('hidden');
-                enBtn.classList.add('active');
-                bnBtn.classList.remove('active');
-                
-                enBtn.style.background = 'var(--primary-color)';
-                enBtn.style.color = 'white';
-                bnBtn.style.background = 'white';
-                bnBtn.style.color = 'var(--primary-color)';
+                btns[1].classList.add('active');
             }
         }
 
@@ -693,6 +705,7 @@
             } 
         }
     </script>
+    
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
